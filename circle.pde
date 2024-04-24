@@ -11,7 +11,7 @@ abstract class Circle extends Shape {
   abstract color backgroundColor();//end Night Mode Color Selector
   //
   color randomColor() {
-    color chosenColor;
+    color chosenColor = #FFFFFF;
     chosenColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
     return chosenColor;
   }//end randomColor
