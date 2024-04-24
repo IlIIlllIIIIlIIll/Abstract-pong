@@ -1,7 +1,7 @@
 //Global Variables
-color strokeColor = #FFFBE3;
-color background = #9EA9F0;
-color secondaryColor = #CCC1FF;
+color strokeColor = #FFFFFF;
+color background = #002D04;
+color secondaryColor = #228B22;
 PongPlayArea pongPlayArea;
 Firework[] firework = new Firework[10];
 Ball firstBall;
@@ -9,7 +9,8 @@ Paddle firstPaddle, secondPaddle;
 //
 void setup() {
 //size(400, 700);//portrait
-  size(700, 400);//landscape
+  //size(700, 400);//landscape
+  fullScreen();
   display();
   pongPlayArea = new PongPlayArea(width/2-((width*2)/5), height/10, (width*4)/5, (height*7)/10, secondaryColor);
   firstBall = new Ball(pongPlayArea.x+(pongPlayArea.w/2)-(height/50), pongPlayArea.y+(pongPlayArea.h/2)-(height/50), 0, 0, 0);
