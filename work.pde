@@ -1,7 +1,7 @@
 class Firework extends Circle {
   //Global Variables
   float  gravity = 0.0;
-  float xVelocity, yVelocity;
+  float xSpeed, ySpeed;
   //
   Firework (float x, float y, float w, float h, color c, float g) {
     super(x, y, w, h, c);
@@ -9,8 +9,8 @@ class Firework extends Circle {
     this.y = y;
     this.c = randomColor(); //RGB color
     this.w = random(firstBall.w/1.1);
-    this.xVelocity = random(-5, 5);
-    this.yVelocity = random(-5, 5);
+    this.xSpeed = random(-5, 5);
+    this.ySpeed = random(-5, 5);
     gravity = g;
   //Add gravity to how the Fireworks.move()
   }//Fireworks
@@ -29,13 +29,13 @@ class Firework extends Circle {
   }//end backgroundColor
   //
   void bounce() {
-    if (x <= ((w/2)+(width/10)) || x >= ((width*9)/10)-(w/2)) (xVelocity) *= -1;
-    if (y <= ((pongPlayArea.y)+(w/2)) || y >= (height*8/10)-(w/2)) (yVelocity) *= -1;
+    if (x <= ((w/2)+(width/10)) || x >= ((width*9)/10)-(w/2)) (xSpeed) *= -1;
+    if (y <= ((pongPlayArea.y)+(w/2)) || y >= (height*8/10)-(w/2)) (ySpeed) *= -1;
   }//end bounce
   void moving() {
-    yVelocity += gravity;
-    x += (xVelocity);
-    y += (yVelocity);
+    ySpeed += gravity;
+    x += (xSpeed);
+    y += (ySpeed);
     //for (int i=0; i < firework.length; i++) firework[i].ballDiameter -= (ballDiameter/4);
     bounce();
   }//end moving

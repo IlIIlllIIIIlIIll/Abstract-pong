@@ -1,6 +1,6 @@
 class Ball extends Circle {
   //Global Variables
-  float xVelocity, yVelocity;
+  float xSpeed, ySpeed;
   //color ballColor;
   //
   Ball(float x, float y, float w, float h, color c) {
@@ -8,8 +8,8 @@ class Ball extends Circle {
     int referentMeasures = (width<height) ? (width):(height) ; //ternary Operator = chooses the smaller value
     //object variables //this is "new Ball()"
     this.w = referentMeasures/25;
-    this.xVelocity = yDirection();
-    this.yVelocity = xDirection();
+    this.xSpeed = yDirection();
+    this.ySpeed = xDirection();
     c = randomColor();
   }//end Ball
   //Methods
@@ -42,12 +42,12 @@ class Ball extends Circle {
     void bounce() {
     if (x <= ((w/2)+(width/10)) || firstBall.x >= ((width*9)/10)-(w/2)) c = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
     //if (ballX <= ((ballDiameter/2)+(width/10)) || cheatBall.ballX >= ((width*9)/10)-(ballDiameter/2)) cheatBall.c = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
-    if (x <= ((w/2)+(width/10)) || x >= ((width*9)/10)-(w/2)) (xVelocity) *= -1;
-    if (y <= ((playAreaY)+(w/2)) || y >= (playAreaH)-(w/2)) (yVelocity) *= -1;
+    if (x <= ((w/2)+(width/10)) || x >= ((width*9)/10)-(w/2)) (xSpeed) *= -1;
+    if (y <= ((playAreaY)+(w/2)) || y >= (playAreaH)-(w/2)) (ySpeed) *= -1;
   }//end bounce
   void moving() {
-    x += (xVelocity);
-    y += (yVelocity);
+    x += (xSpeed);
+    y += (ySpeed);
     //for (int i=0; i < firework.length; i++) firework[i].ballDiameter -= (ballDiameter/4);
     bounce();
     collisionsPaddle();
@@ -73,12 +73,12 @@ class Ball extends Circle {
     if (x+w >= paddleX && x <= paddleX+paddleW && y >= paddleY && y <= paddleY+paddleH) {
       //if (pongGameOn) firstPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
       x = paddleX + paddleW;
-      xVelocity *= -1;
+      xSpeed *= -1;
     }
     if (x+w/2 >= paddleX1 && x <= paddleX1+paddleW1 && y >= paddleY1 && y <= paddleY1+paddleH1) {
       //if (pongGameOn) secondPaddle.paddleColor = color(int(random(0, 255)), int(random(0,255)), int(random(0,255)));
       x = paddleX1 - paddleW1;
-      xVelocity *= -1;
+      xSpeed *= -1;
     }
   }//end collisonPaddle
   /* Features
